@@ -217,6 +217,11 @@ public class Date
                 month.equals("September") || month.equals("October") ||
                 month.equals("November") || month.equals("December") );
     }
+    
+    public Date addOneDay() {
+    	System.out.println("Date.addOneDay() is not yet implemented.");
+    	return this;
+    }
 
     private String monthString(int monthNumber)
     {
