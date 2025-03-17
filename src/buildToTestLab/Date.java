@@ -60,17 +60,21 @@ public class Date
 
     public void setDate(String monthString, int day, int year)
     {
-        if (dateOK(monthString, day, year))
-        {
-            this.month = monthString;
-            this.day = day;
-            this.year = year;
-        }
-        else
-        {
-            System.out.println("Fatal Error in setDate(String,int, int)");
-            System.exit(0);
-        }
+    	int [] daysInMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31,30, 31, 30, 31};
+    	
+    	if(monthOK(monthString) || dateOK(monthString, day, year)) {
+    		this.month = monthString;
+        	this.day = day;
+        	this.year = year;
+    	}
+    	int monthInt = getMonth();
+    	if(day > 1 || day < daysInMonth[monthInt]) {
+    		this.month = monthString;
+        	this.day = day;
+        	this.year = year;
+    	}
+    	else
+    		System.out.println("Invalid date. Date did not change.");
     }
 
     public void setDate(int year)
@@ -219,7 +223,20 @@ public class Date
     }
     
     public Date addOneDay() {
-    	System.out.println("Date.addOneDay() is not yet implemented.");
+    	int [] daysInMonth = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    	day++;
+    	
+    
+    	if(day> daysInMonth[getMonth()]) {
+    		int newMonth = getMonth()+1;
+    		day = 1;
+    		
+    		if(newMonth > 12) {
+    			newMonth = 1;
+    			year++;
+    		}
+    		month = monthString(newMonth);
+    	}
     	return this;
     }
 

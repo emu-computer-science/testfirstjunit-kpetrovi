@@ -30,7 +30,7 @@ public class DateSetDateTest {
 	public void testIllegalDay() {
 		Date date = new Date(11,22,2004);
 		
-		date.setDate("January", 31, 2004);
+		date.setDate("January", 32, 2004);
 		assertEquals("November 22, 2004", date.toString());
 	}
 }

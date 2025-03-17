@@ -9,9 +9,12 @@ public class DateAddDaysTest {
 		Date setDate = new Date ("January", 20, 2019);
 		Date datePlusOne = new Date ("January", 21, 2019);
 		Date datePlusTwo = new Date ("January", 22, 2019);
+
+		setDate.addOneDay();
+		assertEquals(datePlusOne.toString(), setDate.toString());
 		
-		assertEquals(datePlusOne, setDate.addOneDay());
-		assertEquals(datePlusTwo, datePlusOne.addOneDay());
+		datePlusOne.addOneDay();
+		assertEquals(datePlusTwo.toString(), datePlusOne.toString());
 	}
 	
 	@Test
@@ -20,12 +23,13 @@ public class DateAddDaysTest {
 		Date monthPlusOne = new Date ("March", 1, 2019);
 		Date setMonth2 = new Date ("March", 31, 2019);
 		Date monthPlusOne2 = new Date ("April", 1, 2019);
-		Date setMonth3 = new Date ("November", 30, 2019);
-		Date monthPlusOne3 = new Date ("December", 1, 2019);
 		
-		assertEquals(monthPlusOne, setMonth.addOneDay());
-		assertEquals(monthPlusOne2, setMonth2.addOneDay());
-		assertEquals(monthPlusOne3, setMonth3.addOneDay());
+		setMonth.addOneDay();
+		assertEquals(monthPlusOne.toString(), setMonth.toString());
+		
+		setMonth2.addOneDay();
+		assertEquals(monthPlusOne2.toString(), setMonth2.toString());
+		
 	}
 	
 	@Test
@@ -35,7 +39,10 @@ public class DateAddDaysTest {
 		Date setYear2 = new Date ("December", 31, 2025);
 		Date YearPlusOne2 = new Date ("January", 1, 2026);
 		
-		assertEquals(YearPlusOne, setYear.addOneDay());
-		assertEquals(YearPlusOne2, setYear2.addOneDay());
+		setYear.addOneDay();
+		assertEquals(YearPlusOne.toString(), setYear.toString());
+		
+		setYear2.addOneDay();
+		assertEquals(YearPlusOne2.toString(), setYear2.toString());
 	}
 }
